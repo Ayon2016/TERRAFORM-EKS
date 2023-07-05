@@ -16,7 +16,6 @@ resource "aws_subnet" "public" {
   count = var.availability_zones_count
 
 
-
   vpc_id            = aws_vpc.this.id
   cidr_block        = cidrsubnet(var.vpc_cidr, var.subnet_cidr_bits, count.index)
   availability_zone = data.aws_availability_zones.available.names[count.index]
@@ -132,6 +131,7 @@ resource "aws_security_group_rule" "sg_ingress_public_80" {
   to_port           = 80
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
+
 }
 
 resource "aws_security_group_rule" "sg_egress_public" {

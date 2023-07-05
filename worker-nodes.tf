@@ -38,16 +38,7 @@ resource "aws_eks_node_group" "mynodeGroup" {
       condition     = self.capacity_type == "ON_DEMAND"
       error_message = "The selected AMI must be ON_DEMAND"
     }
-
-    # postcondition {
-    # condition = alltrue([
-    #     for role in self.depends_on : role ? aws_iam_role_policy_attachment.node_AmazonEKSWorkerNodePolicy: "" || role ?  aws_iam_role_policy_attachment.node_AmazonEKS_CNI_Policy: ""
-    # ])
-    #   error_message = "The selected AMI must be ON_DEMAND"
-    # }
-
   }
-
 }
 
 
