@@ -26,6 +26,8 @@ func TestIAMPoliciesWorkerNodes(t *testing.T) {
 		PlanFilePath: planFilePath,
 	})
 
+	terraform.WorkspaceSelectOrNew(t, terraformOptions, "Terraform-EKS")
+
 	//Gets the terraform plan output as a struct so that maps can be traversed
 	planOutput := terraform.InitAndPlanAndShowWithStruct(t, terraformOptions)
 	fmt.Println(planOutput)

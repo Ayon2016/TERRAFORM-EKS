@@ -1,5 +1,12 @@
 terraform {
   required_version = ">= 1.1.0"
+  cloud {
+    organization = "ayonchoudhury2016"
+
+    workspaces {
+      name = "Terraform-EKS-Cli"
+    }
+  }
 }
 
 provider "aws" {
