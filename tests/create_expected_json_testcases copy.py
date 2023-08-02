@@ -24,7 +24,9 @@ def find_name_values(json_data):
     find_names(data)
     return name_values
 
-# change path to the actual path of the planoutput.json
+# Change path to the actual path of the planoutput.json
+# This is a one time activity and doies not need to run with tests
+# This is to establish the baseline expected
 with open("/Users/ayon.choudhury/Desktop/Terraform-EKS/cluster_planoutput.json") as f:
     json_data = f.read()
 

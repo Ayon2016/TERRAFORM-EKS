@@ -30,7 +30,7 @@ def test_that_coredns_addon_exists(actual_output, expected_output):
     assert value in actual_output.resource_changes
     #assert value in actual_output
 
-#test helm release exists
+#test app_of_apps exists
 def test_that_appofApps_helmRelease_exists(actual_output, expected_output):
     key = "app_of_apps"
     if key in expected_output:
