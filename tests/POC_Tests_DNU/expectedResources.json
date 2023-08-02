@@ -1,4 +1,4 @@
 {
-    "eip_name": "aws_eip.main",
+    "eip_name": "aws_eip1.main",
     "nodegroup_name": "aws_eks_node_group.mynodeGroup"
 }
