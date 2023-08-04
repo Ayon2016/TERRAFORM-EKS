@@ -2,6 +2,7 @@ import json
 
 def find_name_values(json_data):
     name_values = {}
+    duplicate_keys = []
 
     def find_names(obj):
         nonlocal name_values
@@ -11,7 +12,13 @@ def find_name_values(json_data):
                     for resource in obj["resource_changes"]:
                         if "name" in resource and "address" in resource:
                             resource_address = resource["address"]
-                            resource_name = resource["name"]
+                            resource_name = resource["type"]+ "."+ resource["name"]
+                            count = 0
+                        for key, value in name_values.items():
+                            if resource_name in key:
+                                resource_index = resource["index"]
+                                resource_name = resource["type"]+ "."+ resource["name"] + "."+ resource_index
+                                break
                         name_values[resource_name] = resource_address
             for value in obj.values():
                 find_names(value)
@@ -22,6 +29,7 @@ def find_name_values(json_data):
 
     data = json.loads(json_data)
     find_names(data)
+    print(duplicate_keys)
     return name_values
 
 # Change path to the actual path of the planoutput.json
