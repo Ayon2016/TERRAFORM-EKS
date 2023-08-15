@@ -1,0 +1,187 @@
+global:
+  account: null
+  argoIngressHost: null
+  clusterName: null
+  clusterShortName: null
+  envShortName: null
+  httpProxy: null
+  kmsKeyArn: null
+  region: null
+  regionCode: null
+  registry: null
+  repoUrl: null
+  shortServiceTier: null
+  targetRevision: null
+operators:
+  argoIngress:
+    enable: null
+    host: null
+  awsAlbIngressController:
+    createNamespace: null
+    enable: null
+    imageTag: null
+  awsEfsCsiDriver:
+    createNamespace: null
+    csiProvisionerTag: null
+    enable: null
+    imageTag: null
+    livenessProbeTag: null
+    nodeDriverRegistrarTag: null
+  awsNodeTerminationHandler:
+    createNamespace: null
+    enable: null
+    image:
+      tag: null
+  botkube:
+    createNamespace: null
+    enable: null
+  calico:
+    createNamespace: null
+    enable: null
+    parametersKmsKeyId: null
+  certManager:
+    cainjectorImageTag: null
+    createNamespace: null
+    enable: null
+    imageTag: null
+    startupapicheckImageTag: null
+    webhookImageTag: null
+  csiSecretsStoreProviderAws:
+    createNamespace: null
+    enable: null
+  descheduler:
+    createNamespace: null
+    enable: null
+    imageTag: null
+  dynatrace:
+    createNamespace: null
+    enable: null
+    imageTag: null
+  externalDns:
+    createNamespace: null
+    domainFilter1: null
+    domainFilter2: null
+    enable: null
+    imageTag: null
+  falconSensor:
+    createNamespace: null
+    enable: null
+    imageTag: null
+    version: null
+  fluentbit:
+    createNamespace: null
+    enable: null
+    version: null
+  karpenter:
+    amiName: null
+    amiOwner: null
+    controllerImageDigest: null
+    controllerImageTag: null
+    createNamespace: null
+    driftEnabled: null
+    enable: null
+    version: null
+  kpa:
+    createNamespace: null
+    enable: null
+    imageTag: null
+    version: null
+  kubeMonkey:
+    createNamespace: null
+    enable: null
+    image:
+      repository: null
+      tag: null
+  kubeStateMetrics:
+    createNamespace: null
+    enable: null
+  kured:
+    createNamespace: null
+    enable: null
+    image:
+      repository: null
+      tag: null
+  metricsServer:
+    createNamespace: null
+    enable: null
+    image:
+      repository: null
+      tag: null
+  networkPolicies:
+    DnsA: null
+    DnsB: null
+    PrivateSubnet1Az1: null
+    PrivateSubnet1Az2: null
+    PrivateSubnet2Az1: null
+    PrivateSubnet2Az2: null
+    createNamespace: null
+    enable: null
+  nodeProblemDetector:
+    createNamespace: null
+    enable: null
+    image:
+      repository: null
+  privateIngressNginx:
+    admissionWebhooksImageDigest: null
+    admissionWebhooksImageTag: null
+    controllerImageDigest: null
+    controllerImageTag: null
+    createNamespace: null
+    defaultBackendImageDigest: null
+    defaultBackendImageTag: null
+    enable: null
+  publicIngressNginx:
+    admissionWebhooksImageDigest: null
+    admissionWebhooksImageTag: null
+    controllerImageDigest: null
+    controllerImageTag: null
+    createNamespace: null
+    enable: null
+  rbcAwsIamOperator:
+    awsAccountName: null
+    createNamespace: null
+    enable: null
+    kubeRbacProxyImageTag: null
+    managerImageTag: null
+    version: null
+  rbcAwsKmsOperator:
+    awsKmsOperatorTag: null
+    createNamespace: null
+    enable: null
+    kubeRbacProxyTag: null
+    version: null
+  splunk:
+    createNamespace: null
+    enable: null
+    metricsAggImageTag: null
+    metricsImageTag: null
+    objectsImageTag: null
+    version: null
+  testkubeApi:
+    createNamespace: null
+    enable: null
+    kubeRbacProxyImageTag: null
+    mongodbImageTag: null
+    natsBootconfigImageTag: null
+    natsBoxImageTag: null
+    natsExporterImageTag: null
+    natsImageTag: null
+    natsReloaderImageTag: null
+    testkubeApiServerImageTag: null
+    testkubeDashboardImageTag: null
+    testkubeOperatorImageTag: null
+  testkubeTests:
+    enable: null
+  tigeraOperator:
+    createNamespace: null
+    enable: null
+    prometheusConfigReloaderTag: null
+    prometheusOperatorTag: null
+    tigeraOperatorVersion: null
+    version: null
+  wolverine:
+    createNamespace: null
+    enable: null
+    kubeRbacProxyTag: null
+    version: null
+    wolverineTag: null
