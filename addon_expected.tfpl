@@ -1,0 +1,217 @@
+global:
+  repoUrl: git@rcleanupgithub.git
+  targetRevision: "master"
+  account: "${account_id}"
+  argoIngressHost: "argocd-${cluster_shortname}.${region_code}.${account_name}.${env_shortname}.c0.bank.com"
+  clusterName: "${cluster_prefix}-${cluster_shortname}-eks-${region_shortname}"
+  clusterShortName: "${cluster_shortname}"
+  httpProxy: http://endpointUrl:3128
+  registry: "${account_id}.dkr.ecr.${region}.amazonaws.com"
+  regionCode: "${region_code}"
+  envShortName: "${env_shortname}"
+  region: "${region}"
+  shortServiceTier: "${service_tier_shortname}"
+  kmsKeyArn: "${platform_kms_key_arn}"
+
+operators:
+  privateIngressNginx:
+    enable: false
+    createNamespace: true
+    controllerImageTag: "v1.5.1"
+    controllerImageDigest: "sha256:2f7551977e8553a50cd88e8175b1411acbef319f7040357b58be95e9b99c07e5"
+    admissionWebhooksImageTag: "v20220916-gd32f8c343"
+    admissionWebhooksImageDigest: "sha256:cb080cc0a142137398ee9a55268bd36b2e4ca9941203191ec5846ee565b959e8"
+    defaultBackendImageTag: "1.5"
+    defaultBackendImageDigest: "sha256:4dc5e07c8ca4e23bddb3153737d7b8c556e5fb2f29c4558b7cd6e6df99c512c7"
+
+  publicIngressNginx:
+    enable: false
+    createNamespace: true
+    controllerImageTag: "v1.5.1"
+    controllerImageDigest: "sha256:2f7551977e8553a50cd88e8175b1411acbef319f7040357b58be95e9b99c07e5"
+    admissionWebhooksImageTag: "v20220916-gd32f8c343"
+    admissionWebhooksImageDigest: "sha256:cb080cc0a142137398ee9a55268bd36b2e4ca9941203191ec5846ee565b959e8"
+
+  csiSecretsStoreProviderAws:
+    enable: false
+    createNamespace: false
+
+  certManager:
+    enable: false
+    createNamespace: true
+    imageTag: "v1.10.2"
+    cainjectorImageTag:
+    startupapicheckImageTag: "v1.10.2"
+    webhookImageTag: "v1.10.2"
+
+  karpenter:
+    version: "v0.28.0"
+    enable: true
+    createNamespace: true
+    controllerImageTag: "v0.27.6"
+    controllerImageDigest: "sha256:11592f6a9a7bb7ffba3b83cebbb3d57a4f9fd412bd0c3ed76fb3b37684c0c103"
+    amiName: ${ami_version}
+    driftEnabled: true
+    amiOwner: ${ami_owner}
+
+  awsAlbIngressController:
+    enable: false
+    createNamespace: false
+    imageTag: "v2.4.7"
+
+  externalDns:
+    enable: false
+    createNamespace: true
+    imageTag: "v0.13.1"
+    domainFilter1: "sampleApp-eng.nonp.c0.bank.com"
+    domainFilter2: "sampleApp-eng.nonp.pc0.bank.com"
+
+  bankAwsIamOperator:
+    version: "v1.1.4-alpha.3344e8.20230608"
+    enable: false
+    createNamespace: true
+    kubeRbacProxyImageTag: "v0.13.1"
+    managerImageTag: "1.1.4-alpha.3344e8.20230608"
+    awsAccountName: AWS0_B_{account_name}_N
+
+  awsNodeTerminationHandler:
+    enable: false
+    createNamespace: false
+    image:
+      tag: "v1.19.0"
+
+  botkube:
+    enable: false
+    createNamespace: true
+
+  descheduler:
+    enable: false
+    createNamespace: false
+    imageTag: "v0.25.1"
+
+  kubeMonkey:
+    enable: false
+    createNamespace: true
+    image:
+      repository: "${account_id}.dkr.ecr.${region}.amazonaws.com/kyv0/kube-monkey"
+      tag: "v0.5.2"
+
+  kubeStateMetrics:
+    enable: false
+    createNamespace: false
+
+  kured:
+    enable: false
+    createNamespace: true
+    image:
+      repository: "${account_id}.dkr.ecr.${region}.amazonaws.com/kyv0/kubereboot/kured"
+      tag: "1.12.0"
+
+  metricsServer:
+    enable: false
+    createNamespace: false
+    image:
+      repository: "${account_id}.dkr.ecr.${region}.amazonaws.com/kyv0/bitnami/metrics-server"
+      tag: "0.6.2"
+
+  nodeProblemDetector:
+    enable: false
+    createNamespace: false
+    image:
+      repository: "${account_id}.dkr.ecr.${region}.amazonaws.com/kyv0/node-problem-detector/node-problem-detector"
+
+  tigeraOperator:
+    version: v3.16.1
+    enable: false
+    createNamespace: true
+    tigeraOperatorVersion: "v1.29.4"
+    prometheusOperatorTag: "v3.16.1"
+    prometheusConfigReloaderTag: "v3.16.1"
+
+  calico:
+    enable: false
+    createNamespace: true
+    parametersKmsKeyId: ${platform_kms_key_arn}
+
+  networkPolicies:
+    enable: false
+    createNamespace: true
+    PrivateSubnet1Az1: 1.2.3.0/24
+    PrivateSubnet1Az2: 1.2.3.0/24
+    PrivateSubnet2Az1: 1.2.3.0/24
+    PrivateSubnet2Az2: 1.2.3.0/24
+    DnsA: 1.2.3.0/24
+    DnsB: 1.2.3.0/24
+
+  dynatrace:
+    enable: false
+    createNamespace: true
+    imageTag: "v0.10.3"
+
+  awsEfsCsiDriver:
+    enable: false
+    createNamespace: false
+    imageTag: "v1.5.6"
+    livenessProbeTag: "v2.10.0-eks-1-27-3"
+    nodeDriverRegistrarTag: "v2.8.0-eks-1-27-3"
+    csiProvisionerTag: "v3.5.0-eks-1-27-3"
+
+  falconSensor:
+    version: "1.19.1"
+    enable: false
+    createNamespace: true
+    imageTag: "6.51.0"
+
+  fluentbit:
+    version: "stable"
+    enable: false
+    createNamespace: true
+
+  kpa:
+    version: "0.917.0"
+    enable: false
+    createNamespace: true
+    imageTag: "0.917.0"
+
+  bankAwsKmsOperator:
+    version: "v1.2.0-alpha.042169.20220303"
+    enable: false
+    createNamespace: true
+    awsKmsOperatorTag: "1.2.0-alpha.042169.20220303"
+    kubeRbacProxyTag: "v0.8.0"
+
+  wolverine:
+    version: "v1.0.2-alpha.ff3ae5.20230629"
+    enable: false
+    createNamespace: true
+    wolverineTag: "1.0.2-alpha.ff3ae5.20230629"
+    kubeRbacProxyTag: "v0.13.1"
+
+  splunk:
+    version: "v1.1.12"
+    enable: false
+    createNamespace: true
+    metricsImageTag: "1.1.12"
+    objectsImageTag: "1.1.12"
+    metricsAggImageTag: "1.1.12"
+
+  argoIngress:
+    enable: false
+    host: "argocd-${cluster_shortname}.${region_code}.${account_name}.${env_shortname}.c0.bank.com"
+
+  testkubeApi:
+    enable: false
+    createNamespace: true
+    mongodbImageTag: "5.0.19-debian-11-r11"
+    testkubeApiServerImageTag: "1.13.0"
+    testkubeDashboardImageTag: "1.13.0"
+    testkubeOperatorImageTag: "1.13.0"
+    kubeRbacProxyImageTag: "v0.8.0"
+    natsImageTag: "2.9.8-alpine"
+    natsBootconfigImageTag: "0.7.4"
+    natsBoxImageTag: "0.13.2"
+    natsReloaderImageTag: "0.7.4"
+    natsExporterImageTag: "0.10.1"
+
+  testkubeTests:
+    enable: false
