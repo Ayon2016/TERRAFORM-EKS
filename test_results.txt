@@ -1,0 +1,4 @@
+data.aws_eks_cluster.lookup
+module.eks-cluster-infra.aws_eks_addon.coredns
+module.eks-cluster-infra.aws_eks_addon.ebs_csi
+module.eks-cluster-infra.aws_eks_addon.kubeproxy

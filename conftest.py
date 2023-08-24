@@ -11,7 +11,7 @@ def actual_output():
 
     # resource changes
     plan_data = TerraformPlanOutput(json_data)
-    print(plan_data.resource_changes)
+    #print(plan_data.resource_changes)
     yield plan_data.resource_changes
 
 #Fixture 2 to read the expected output json
@@ -21,3 +21,19 @@ def expected_output():
         # Load the JSON data
         data = json.load(file)
     yield data
+
+#Fixture 3 to read the expected output json for detailed resources
+@pytest.fixture(scope="class")
+def expected_output_attributes():
+    with open('/Users/ayon.choudhury/Desktop/Terraform-EKS/expectedResource_values_us-east-1.json', 'r') as file:
+        # Load the JSON data
+        data = json.load(file)
+        #print (data)
+    yield data
+
+def pytest_html_report_title(report):
+	''' modifying the title of html report'''
+	report.title = "Terraform Conifg Tests"
+
+
+

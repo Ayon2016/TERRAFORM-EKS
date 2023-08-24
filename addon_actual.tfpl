@@ -2,7 +2,7 @@ global:
   repoUrl: git@rcleanupgithub.git
   targetRevision: "master"
   account: "${account_id}"
-  argoIngressHost: "argocd-${cluster_shortname}.${region_code}.${account_name}.${env_shortname}.c0.rbc.com"
+  argoIngressHost: "argocd-${cluster_shortname}.${region_code}.${account_name}.${env_shortname}.c0.bank.com"
   clusterName: "${cluster_prefix}-${cluster_shortname}-eks-${region_shortname}"
   clusterShortName: "${cluster_shortname}"
   httpProxy: http://endpointUrl:3128
@@ -63,10 +63,10 @@ operators:
     enable: false
     createNamespace: true
     imageTag: "v0.13.1"
-    domainFilter1: "kyvos-eng.nonp.c0.rbc.com"
-    domainFilter2: "kyvos-eng.nonp.pc0.rbc.com"
+    domainFilter1: "sampleApp-eng.nonp.c0.bank.com"
+    domainFilter2: "sampleApp-eng.nonp.pc0.bank.com"
 
-  rbcAwsIamOperator:
+  bankAwsIamOperator:
     version: "v1.1.4-alpha.3344e8.20230608"
     enable: false
     createNamespace: true
@@ -173,7 +173,7 @@ operators:
     createNamespace: true
     imageTag: "0.917.0"
 
-  rbcAwsKmsOperator:
+  bankAwsKmsOperator:
     version: "v1.2.0-alpha.042169.20220303"
     enable: false
     createNamespace: true
@@ -197,7 +197,7 @@ operators:
 
   argoIngress:
     enable: false
-    host: "argocd-${cluster_shortname}.${region_code}.${account_name}.${env_shortname}.c0.rbc.com"
+    host: "argocd-${cluster_shortname}.${region_code}.${account_name}.${env_shortname}.c0.bank.com"
 
   testkubeApi:
     enable: false

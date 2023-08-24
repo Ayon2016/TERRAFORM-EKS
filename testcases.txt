@@ -1,4 +1,4 @@
-Verify the" Network" resources in the Terraform Cluster Config:
+Verify the "Network" resources in the Terraform Cluster Config:
 
 	1. Verify that the resource name 'aws_security_group.public_ingress' of type 'module.eks-cluster-infra.module.eks_networking.aws_security_group.public_ingress[0]' exists in the Terraform code
 	2. Verify that the resource name 'aws_security_group.public_ingress_backend' of type 'module.eks-cluster-infra.module.eks_networking.aws_security_group.public_ingress_backend[0]' exists in the Terraform code
@@ -34,8 +34,6 @@ Verify the "Dataplane" resources in the Terraform Cluster Config:
 	9. Verify that the resource name 'null_resource.applicationset_cluster' of type 'module.eks-cluster-infra.null_resource.applicationset_cluster' exists in the Terraform code
 	10. Verify that the resource name 'null_resource.applicationset_core_platform_eks_network_policy' of type 'module.eks-cluster-infra.null_resource.applicationset_core_platform_eks_network_policy' exists in the Terraform code
 	11. Verify that the resource name 'null_resource.applicationset_kubeenforcer' of type 'module.eks-cluster-infra.null_resource.applicationset_kubeenforcer' exists in the Terraform code
-	
-	
 
 
 Verify the "IAM Roles" for Dataplane, Nodegroup, Networking, and Add-on resources in the Terraform Config:
